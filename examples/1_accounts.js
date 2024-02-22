@@ -1,9 +1,12 @@
+require('dotenv').config()
+
 const { ethers } = require("ethers");
 
-const INFURA_ID = ''
-const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${INFURA_ID}`)
+console.log('INFURAID:', process.env.INFURAID)
 
-const address = '0x73BCEb1Cd57C711feaC4224D062b0F6ff338501e'
+const provider = new ethers.providers.JsonRpcProvider(`https://mainnet.infura.io/v3/${process.env.INFURAID}`)
+
+const address = '0x51C09bEED2479cB2C03F2D8c6c8f340f963572f5'
 
 const main = async () => {
     const balance = await provider.getBalance(address)
